@@ -4,6 +4,7 @@ import 'package:career_exhort/screens/SelectSubjectTenth.dart';
 import 'package:career_exhort/screens/StreamsForBipc.dart';
 import 'package:career_exhort/screens/StreamsForCEC.dart';
 import 'package:career_exhort/screens/StreamsForMPC.dart';
+import 'package:career_exhort/screens/colleges.dart';
 import 'package:flutter/material.dart';
 import 'screens/DefaultHomeScreen.dart';
 
@@ -25,6 +26,7 @@ class MyApp extends StatelessWidget {
         StreamsForBipc.id : (context) => StreamsForBipc(),
         StreamsForCEC.id: (context) => StreamsForCEC(),
         StreamsForMPC.id: (context) => StreamsForMPC(),
+        Colleges.id :(context)=>Colleges(),
       },
     );
   }
