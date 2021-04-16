@@ -1,26 +1,24 @@
-import 'package:career_exhort/components/StreamCards.dart';
+import 'package:career_exhort/models/ListForMPC.dart';
+import 'package:career_exhort/screens/colleges.dart';
 import 'package:flutter/material.dart';
-import 'package:career_exhort/Lists/ListForMPC.dart';
-
-
 
 class StreamsForMPC extends StatefulWidget {
-
   static const String id = 'StreamsForMPC';
 
   @override
   _StreamsForMPCState createState() => _StreamsForMPCState();
 }
 
- class _StreamsForMPCState extends State<StreamsForMPC> {
-
+class _StreamsForMPCState extends State<StreamsForMPC> {
   //ListMPC list = ListMPC();
 
   List<ListMPC> mpcStreams = [
-    ListMPC(shortName: 'B.Tech',fullName: 'Bachelor Of Engineering'),
-    ListMPC(shortName: 'LLB',fullName: 'Study Of Law'),
-    ListMPC(shortName: 'BBA/BBM',fullName: 'Bachelor of Business Administration'),
+    ListMPC(shortName: 'B.Tech', fullName: 'Bachelor Of Engineering'),
+    ListMPC(shortName: 'LLB', fullName: 'Study Of Law'),
+    ListMPC(
+        shortName: 'BBA/BBM', fullName: 'Bachelor of Business Administration'),
   ];
+
 
   @override
   Widget build(BuildContext context) {
@@ -47,7 +45,7 @@ class StreamsForMPC extends StatefulWidget {
           Expanded(
             child: ListView.builder(
               itemCount: mpcStreams.length,
-                itemBuilder: (context, index) {
+              itemBuilder: (context, index) {
                 return Padding(
                   padding: EdgeInsets.all(10.0),
                   child: Container(
@@ -58,13 +56,19 @@ class StreamsForMPC extends StatefulWidget {
                     child: ListTile(
                       title: Text(mpcStreams[index].shortName),
                       subtitle: Text(mpcStreams[index].fullName),
-                      onTap: (){
-                       // Navigator.pushNamed(context, routeName)
+                      onTap: () {
+                        Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (context) => Colleges(
+                              streamName: mpcStreams[index].shortName,
+                            ),
+                          ),
+                        );
                       },
                     ),
                   ),
                 );
-                },
+              },
             ),
           ),
         ],
